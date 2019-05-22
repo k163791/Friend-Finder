@@ -31,3 +31,12 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background : url('https://i.redd.it/nqndmyx3qru21.jpg');
+  background-size:cover;
+}
+
+h1 {
+  color:white;
+}
