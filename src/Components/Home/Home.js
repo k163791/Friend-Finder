@@ -17,8 +17,10 @@ const Home = ({ onRouteChange, signInEmail }) => {
 		      <Nav.Link href="#home" onClick={()=>onRouteChange('Home')}>Home</Nav.Link>
 		      <Nav.Link href="#friends" onClick={()=>onRouteChange('Friends')}>Friends</Nav.Link>
 		      <Nav.Link href="#event" onClick={()=>onRouteChange('Event')}>Events</Nav.Link>
-		      <Nav.Link href="#event" onClick={()=>onRouteChange('Skill')}>Skills</Nav.Link>
-		      <Nav.Link href="#event" onClick={()=>onRouteChange('Find')}>Find</Nav.Link>
+		      <Nav.Link href="#skill" onClick={()=>onRouteChange('Skill')}>Skills</Nav.Link>
+		      <Nav.Link href="#find" onClick={()=>onRouteChange('Find')}>Find</Nav.Link>
+		      <Nav.Link href="#map" onClick={()=>onRouteChange('Map')}>Map</Nav.Link>
+		      <Nav.Link href="#invite" onClick={()=>onRouteChange('Invite')}>Invite</Nav.Link>
 		    </Nav>
 		    {
 		    /*<Form inline>

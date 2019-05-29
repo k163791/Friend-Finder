@@ -37,7 +37,11 @@ onPasswordChange = (event) => {
 
 
 validate = () => {
-  if(this.state.name === 0) {
+  if(this.state.password.length === 0) {
+    this.props.alert.show(`Password Not Entered`);
+    return 0;
+  }
+  if(this.state.name.length === 0) {
     this.props.alert.show(`Name can't be empty`);
     return 0;
   }

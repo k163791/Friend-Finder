@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-google-maps/api": "^1.2.3-alpha.11",
+    "leaflet": "^1.5.1",
     "mdbreact": "^4.13.0",
     "react": "^16.8.6",
     "react-alert": "^5.5.0",

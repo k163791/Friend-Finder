@@ -37,6 +37,7 @@ onSubmit = () => {
   }).then(response => response.json())
   .then(data => {
     if(data === `Couldn't Signin`) {
+      console.log(data);
       this.props.alert.show(`Incorrect Login Credentials`);
     } else {
       this.props.setEmail(this.state.email);
@@ -80,7 +81,7 @@ render() {
                 <div className="text-center py-4 mt-3">
                   <MDBBtn
                     onClick={this.onSubmit} 
-                    color="cyan" type="submit">
+                    color="cyan" >
                     Login
                   </MDBBtn>
                 </div>

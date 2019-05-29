@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from '../Home/Home';
 import Scroll from '../Scroll/Scroll';
+import { withAlert } from 'react-alert';
 // import Footer from '../Footer/Footer';
 // import { withAlert } from 'react-alert';
 import {MDBContainer, MDBCard, MDBCardBody,form, MDBInput, MDBBtn } from 'mdbreact';
@@ -12,10 +13,11 @@ constructor(props) {
 	super();
 	this.state = {
 		imge : 'https://i.redd.it/kfw12czosiv21.png',
-		Email : '',
+		number : '',
 		Name : '',
 		Password : '',
-		id : ''
+		id : '',
+		Email : ''
 	}
 }
 
@@ -24,8 +26,32 @@ constructor(props) {
 // 	this.setState({Email : event.target.value})
 // }
 
-onEmailChange = (event) => {
-	this.setState({Email : event.target.value})
+componentDidMount() {
+	    this._isMounted = true;
+	  	fetch('http://localhost:3001/getProfile',{
+			method: 'post',
+			headers: {'Content-Type':'application/json'},
+			body : JSON.stringify({
+				id : this.props.userId
+			})
+		})
+		.then(response => response.json())
+		.then(data => {
+			this.setState({Name : data.name});
+			this.setState({Password : data.password});
+			this.setState({number : data.phone_no});
+			this.setState({Email : data.email});
+		}).then(result => {
+			if(this._isMounted) {
+				this.setState({isLoading:false})
+			}
+		});
+	}
+
+
+
+onPhoneChange = (event) => {
+	this.setState({number : event.target.value})
 }
 
 onNameChange = (event) => {
@@ -42,6 +68,26 @@ changePicture = (event) => {
 	let formData = new FormData();
 	formData.append('image',event.target.value);
 	console.log(formData);
+}
+
+updateProfile = () => {
+	fetch('http://localhost:3001/updateProfile',{
+		method : 'post',
+		headers : {'Content-Type' : 'application/json'},
+		body : JSON.stringify({
+			id : this.props.userId,
+			email : this.state.Email,
+			password : this.state.Password,
+			name : this.state.Name,
+			image : this.state.imge,
+			phone_no : this.state.number
+		})
+	}).then(response => response.json())
+	.then(data => {
+		if(data === `Success`) {
+			this.props.alert.show(`Profile Updated`);
+		}
+	})
 }
 
 render() {
@@ -65,13 +111,8 @@ render() {
     							{ 
     								// <input onChange={this.changePicture} type="file" name="picture" />
     							}
-    						<MDBBtn onClick={this.uploadFile} color="cyan" type="submit">Update Profile Image</MDBBtn>
+    						
     						</Container>
-    							<MDBInput 
-    								onChange={this.onEmailChange} 
-    								label="Email" 
-    								group type="text" 
-    								value={this.state.Email} validate/>
 	    						<MDBInput
 	    							onChange={this.onNameChange} 
 	    							label="Name" 
@@ -82,7 +123,11 @@ render() {
 	    							label="Password" 
 	    							group type="Password" 
 	    							value={this.state.Password} validate/>
-	    						
+	    						<MDBInput
+	    							onChange={this.onPhoneChange} 
+	    							label="Phone Number" 
+	    							group type="text" 
+	    							value={this.state.number} validate/>	
 	    					<hr />
 	    					<MDBBtn onClick={this.updateProfile} color="cyan" type="submit">Update Profile</MDBBtn>
 			             </form>  
@@ -96,4 +141,4 @@ render() {
 	
 }
 
-export default Profile;
+export default withAlert()(Profile);

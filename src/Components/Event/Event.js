@@ -1,14 +1,17 @@
 import React from 'react';
 import Home from '../Home/Home';
 import Scroll from '../Scroll/Scroll';
+import { Card, Button } from 'react-bootstrap';
+
 // import { Container, Row } from 'react-bootstrap';
-import {MDBContainer, MDBCard, MDBCardBody, form, MDBBtn, MDBInput, MDBCol } from 'mdbreact';
+import {MDBContainer, MDBCard, MDBCardBody, form, MDBBtn, MDBInput } from 'mdbreact';
 
 class Event extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {
-			eventt : ''
+			eventt : '',
+
 		}
 		this.events = []
 	}
@@ -25,7 +28,7 @@ class Event extends React.Component {
 		.then(response => response.json())
 		.then(data => {
 			this.events = Object.values(data);
-			console.log(this.events);
+			
 		}).then(result => {
 			if(this._isMounted) {
 				this.setState({isLoading:false})
@@ -36,6 +39,8 @@ class Event extends React.Component {
 	componentWillUnmount() {
 	    this._isMounted = false;
 	}
+
+
 
 	onEventChange = (event) => {
 		this.setState({eventt:event.target.value})
@@ -75,30 +80,28 @@ class Event extends React.Component {
 			            <hr/>
 			            <h2>Events Posted by You</h2>
 			            <hr/>
+			            <div>
 			            {
 			            	this.events.map((object,i) => {
 			            		return(
-			            			// <div key={this.events[i].id}>
-			            			// <h3>Event ID : {this.events[i].id}</h3>
-			            			// <p>{this.events[i].event}</p>
-			            			// <br/>
-			            			// </div>
-			            // 			<div>
-			            // 			 <MDBCol size="6">
-							        //   <h3>Event ID : {this.events[i].id}</h3>
-							        //   <br />
-							        //   <p>{this.events[i].event}</p>
-							        // </MDBCol>
-							        // </div>
-							        <div>
-							         <h3>Event ID : {this.events[i].id}</h3>
-							        <span className="d-block p-2 bg-primary text-white">
-							        	{this.events[i].event}
-							        </span>
+							        <div key={this.events[i].id}>
+							        <Card>
+									  <Card.Header>Event ID : {this.events[i].id}</Card.Header>
+									  <Card.Body>
+									    <Card.Title>Event Number {i}</Card.Title>
+									    <Card.Text>
+									      {this.events[i].event}
+									    </Card.Text>
+									    <Button variant="primary">Go somewhere</Button>
+									  </Card.Body>
+									</Card>
 							        </div>
 			            		);
 			            	})
 			            }
+			            </div>
+			            <div>
+			            </div>
 			             </form> 
 						</MDBCardBody>
 					</MDBCard>

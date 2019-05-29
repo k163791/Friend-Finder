@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card,Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const Cards = (props) => {
 
@@ -15,7 +15,8 @@ const Cards = (props) => {
 				<Card.Text>
 				   {props.cardText}
 				</Card.Text>
-				<Button onClick={ () => props.onClickFriend(props.user_id)} variant="primary">{props.clickText}</Button>
+				{//<Button variant="primary">{props.clickText}</Button>
+			}
 			</Card.Body>
 		</Card>
 		</div>
