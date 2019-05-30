@@ -27,7 +27,7 @@ onPasswordChange = (event) => {
 } 
 
 onSubmit = () => {
-  fetch('http://localhost:3001/login',{
+  fetch('http://34.226.140.116:80/login',{
     method : 'post',
     headers : {'Content-Type' : 'application/json'},
     body : JSON.stringify({

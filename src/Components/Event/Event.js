@@ -18,7 +18,7 @@ class Event extends React.Component {
 
 	componentDidMount() {
 	    this._isMounted = true;
-	  	fetch('http://localhost:3001/getevents',{
+	  	fetch('http://34.226.140.116:80/getevents',{
 			method: 'post',
 			headers: {'Content-Type':'application/json'},
 			body : JSON.stringify({
@@ -47,7 +47,7 @@ class Event extends React.Component {
 	}
 
 	onSubmit = () => {
-		fetch('http://localhost:3001/event',{
+		fetch('http://34.226.140.116:80/event',{
 			method : 'post',
 			headers : {'Content-Type':'application/json'},
 			body : JSON.stringify({

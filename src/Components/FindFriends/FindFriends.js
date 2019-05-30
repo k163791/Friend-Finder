@@ -14,7 +14,7 @@ class FindFriends extends React.Component {
 
 	componentDidMount() {
 	    this._isMounted = true;
-	  	fetch('http://localhost:3001/getusers',{
+	  	fetch('http://34.226.140.116:80/getusers',{
 			method: 'post',
 			headers: {'Content-Type':'application/json'},
 			body : JSON.stringify({
@@ -42,7 +42,7 @@ class FindFriends extends React.Component {
 	}
 
 	onClickFriend = (friend) => {
-		fetch('http://localhost:3001/addFriend',{
+		fetch('http://34.226.140.116:80/addFriend',{
 			method : 'post',
 			headers : {'Content-Type' : 'application/json'},
 			body : JSON.stringify({
@@ -61,7 +61,7 @@ class FindFriends extends React.Component {
 		if(this.state.searchBox.length === 0) {
 			this.props.alert.show('Search Entity is Empty!');
 		} else {
-			fetch('http://localhost:3001/getFilteredUsers',{
+			fetch('http://34.226.140.116:80/getFilteredUsers',{
 				method : 'post',
 				headers : {'Content-Type':'application/json'},
 				body : JSON.stringify({

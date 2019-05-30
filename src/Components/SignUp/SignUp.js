@@ -65,7 +65,7 @@ validate = () => {
 onButtonSubmit = () => {
   const check = this.validate();
   if(check === 1) {
-    fetch('http://localhost:3001/register',{
+    fetch('http://34.226.140.116:80/register',{
       method : 'post',
       headers : {'Content-Type' : 'application/json'},
       body : JSON.stringify({
@@ -74,7 +74,9 @@ onButtonSubmit = () => {
         phone_no : this.state.phoneNo,
         password : this.state.password
       })
-    }).then(response => response.json())
+    }).then(response => {
+      return response.json()
+    })
     .then(data => {
       console.log(data);
       if(data === `Couldn't Register`) {

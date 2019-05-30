@@ -15,7 +15,7 @@ class Skills extends React.Component {
 
 	componentDidMount() {
 	    this._isMounted = true;
-	  	fetch('http://localhost:3001/getSkills',{
+	  	fetch('http://34.226.140.116:80/getSkills',{
 			method: 'post',
 			headers: {'Content-Type':'application/json'},
 			body : JSON.stringify({
@@ -44,7 +44,7 @@ class Skills extends React.Component {
 	}
 
 	onAddSkill = () => {
-		fetch('http://localhost:3001/addSkill',{
+		fetch('http://34.226.140.116:80/addSkill',{
 			method : 'post',
 			headers : {'Content-Type' : 'application/json'},
 			body : JSON.stringify({
