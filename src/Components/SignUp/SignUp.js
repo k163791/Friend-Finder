@@ -140,7 +140,7 @@ render() {
                   />
                 </div>
                 <div className="text-center py-4 mt-3">
-                  <MDBBtn onClick={this.onButtonSubmit} color="cyan" type="submit">
+                  <MDBBtn onClick={this.onButtonSubmit} color="cyan" >
                     Register
                   </MDBBtn>
                 </div>

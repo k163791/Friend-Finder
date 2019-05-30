@@ -44,7 +44,10 @@ class Skills extends React.Component {
 	}
 
 	onAddSkill = () => {
-		fetch('http://34.226.140.116:80/addSkill',{
+		if(this.state.enterSkill.length === 0) {
+			this.props.alert.show(`Block is Empty`);
+		} else {
+			fetch('http://34.226.140.116:80/addSkill',{
 			method : 'post',
 			headers : {'Content-Type' : 'application/json'},
 			body : JSON.stringify({
@@ -58,6 +61,8 @@ class Skills extends React.Component {
 				this.props.onRouteChange(`Home`);
 			}
 		})
+		}
+		
 	}
 
 	render() {

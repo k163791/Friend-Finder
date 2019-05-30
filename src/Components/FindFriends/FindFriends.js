@@ -24,6 +24,7 @@ class FindFriends extends React.Component {
 		.then(response => response.json())
 		.then(data => {
 			this.users = Object.values(data);
+			console.log(this.users);
 		}).then(result => {
 			if(this._isMounted) {
 				this.setState({isLoading:false})

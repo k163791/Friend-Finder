@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../Home/Home';
 import Scroll from '../Scroll/Scroll';
 import { Card, Button } from 'react-bootstrap';
+import { withAlert } from 'react-alert';
 
 // import { Container, Row } from 'react-bootstrap';
 import {MDBContainer, MDBCard, MDBCardBody, form, MDBBtn, MDBInput } from 'mdbreact';
@@ -47,7 +48,10 @@ class Event extends React.Component {
 	}
 
 	onSubmit = () => {
-		fetch('http://34.226.140.116:80/event',{
+		if(this.state.eventt.length === 0 ) {
+			this.props.alert.show('Empty String')
+		} else {
+			fetch('http://34.226.140.116:80/event',{
 			method : 'post',
 			headers : {'Content-Type':'application/json'},
 			body : JSON.stringify({
@@ -58,6 +62,8 @@ class Event extends React.Component {
 		.then(data => {
 			this.props.onRouteChange('Home');
 		})
+		}
+		
 	}
 
 	render() {
@@ -76,7 +82,7 @@ class Event extends React.Component {
 						<p className="h4 text-left py-4">/Events</p>
 			            <hr />
 			             <MDBInput onChange={this.onEventChange} type="textarea" label="Enter Event" outline />
-			             <MDBBtn onClick={this.onSubmit} color="cyan" type="submit">Post</MDBBtn>
+			             <MDBBtn onClick={this.onSubmit} color="cyan">Post</MDBBtn>
 			            <hr/>
 			            <h2>Events Posted by You</h2>
 			            <hr/>
@@ -113,4 +119,4 @@ class Event extends React.Component {
 	}
 }
 
-export default Event;
+export default withAlert()(Event);

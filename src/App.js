@@ -47,7 +47,7 @@ setEmail = (email) => {
 }
 
 setID = (email) => {
-  fetch('http://localhost:3001/retrieveID',{
+  fetch('http://34.226.140.116:80/retrieveID',{
     method : 'post',
     headers : {'Content-Type' : 'application/json'},
     body : JSON.stringify({

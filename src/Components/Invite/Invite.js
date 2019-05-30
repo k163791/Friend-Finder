@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from '../Home/Home';
 import { withAlert } from 'react-alert';
-import {MDBContainer, MDBCard, MDBCardBody, form } from 'mdbreact';
+import {MDBContainer, MDBCard, MDBCardBody, form, MDBInput, MDBBtn } from 'mdbreact';
 class Invite extends React.Component {
 	constructor(props) {
 		super();
@@ -75,31 +75,13 @@ class Invite extends React.Component {
 						<form >
 						<p className="h4 text-left py-4">/Invite Friends</p>
 						<hr/>
-						<input className='pa3 ba b--blue bg-black'
-						type='text' 
-						placeholder='Enter Number'
-						onChange = {this.onNumberChange}
-						/>
-						<button 
-						onClick={this.onSearchClick}
-						style={{
-							padding : '5px'
-						}}
-						>
-						INVITE</button>
+						<MDBInput onChange={this.onNumberChange} type="text" label="Enter Number" outline />
+						<MDBBtn onClick={this.onSearchClick} color="cyan">INVITE</MDBBtn>
 						<br/>
 						<br/>
-						<input className='pa3 ba b--blue bg-black'
-						type='email' 
-						placeholder='Enter Email '
-						onChange = {this.onEmailChange}
-						/>
-						<button 
-						onClick={this.onEmailSend}
-						style={{
-							padding : '5px'
-						}}
-						>INVITE</button>
+						<MDBInput onChange={this.onEmailChange} type="text" label="Enter Email" outline />
+						<MDBBtn onClick={this.onEmailSend} color="cyan">INVITE</MDBBtn>
+						
 						</form>
 						</MDBCardBody>
 					</MDBCard>
