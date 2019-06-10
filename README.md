@@ -1,5 +1,7 @@
-#Friend Finder App
+# Friend Finder App
+
 Made by Uzair Hussain K163791 for Computer Networks Course
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
