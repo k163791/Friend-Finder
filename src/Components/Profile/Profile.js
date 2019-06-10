@@ -28,7 +28,7 @@ constructor(props) {
 
 componentDidMount() {
 	    this._isMounted = true;
-	  	fetch('http://34.226.140.116:80/getProfile',{
+	  	fetch('http://localhost:3001/getProfile',{
 			method: 'post',
 			headers: {'Content-Type':'application/json'},
 			body : JSON.stringify({
@@ -71,7 +71,7 @@ changePicture = (event) => {
 }
 
 updateProfile = () => {
-	fetch('http://34.226.140.116:80/updateProfile',{
+	fetch('http://localhost:3001/updateProfile',{
 		method : 'post',
 		headers : {'Content-Type' : 'application/json'},
 		body : JSON.stringify({

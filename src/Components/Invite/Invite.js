@@ -23,7 +23,7 @@ class Invite extends React.Component {
 		} else if(this.state.number.length > 11 || this.state.number.length < 11) {
 			this.props.alert.show(`Enter a valid Number`);
 		} else if(this.state.number.length === 11) {
-			fetch('http://34.226.140.116:80/sendMessage',{
+			fetch('http://localhost:3001/sendMessage',{
 				method : 'post',
 				headers : {'Content-Type' : 'application/json'}
 			}).then(response => response.json())
@@ -50,7 +50,7 @@ class Invite extends React.Component {
 	  	if(this.state.email.indexOf(".") === -1) {
 	    this.props.alert.show(`Enter a valid Email`);
 	  	} else {
-	  		fetch('http://34.226.140.116:80/sendMail',{
+	  		fetch('http://localhost:3001/sendMail',{
 	  			method : 'post',
 	  			headers : {'Content-Type' : 'application/json'},
 	  			body : JSON.stringify({

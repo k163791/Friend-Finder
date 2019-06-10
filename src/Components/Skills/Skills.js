@@ -15,7 +15,7 @@ class Skills extends React.Component {
 
 	componentDidMount() {
 	    this._isMounted = true;
-	  	fetch('http://34.226.140.116:80/getSkills',{
+	  	fetch('http://localhost:3001/getSkills',{
 			method: 'post',
 			headers: {'Content-Type':'application/json'},
 			body : JSON.stringify({
@@ -47,7 +47,7 @@ class Skills extends React.Component {
 		if(this.state.enterSkill.length === 0) {
 			this.props.alert.show(`Block is Empty`);
 		} else {
-			fetch('http://34.226.140.116:80/addSkill',{
+			fetch('http://localhost:3001/addSkill',{
 			method : 'post',
 			headers : {'Content-Type' : 'application/json'},
 			body : JSON.stringify({
@@ -101,7 +101,7 @@ class Skills extends React.Component {
 							onChange={this.onSkillChange} 
 							type="textarea" 
 							label="Enter Skill" outline />
-			             <MDBBtn onClick={this.onAddSkill} color="cyan" type="submit">Submit</MDBBtn>
+			             <MDBBtn onClick={this.onAddSkill} color="cyan" >Submit</MDBBtn>
 						</div>
 						</form>
 						</MDBCardBody>

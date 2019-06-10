@@ -19,7 +19,7 @@ class Event extends React.Component {
 
 	componentDidMount() {
 	    this._isMounted = true;
-	  	fetch('http://34.226.140.116:80/getevents',{
+	  	fetch('http://localhost:3001/getevents',{
 			method: 'post',
 			headers: {'Content-Type':'application/json'},
 			body : JSON.stringify({
@@ -51,7 +51,7 @@ class Event extends React.Component {
 		if(this.state.eventt.length === 0 ) {
 			this.props.alert.show('Empty String')
 		} else {
-			fetch('http://34.226.140.116:80/event',{
+			fetch('http://localhost:3001/event',{
 			method : 'post',
 			headers : {'Content-Type':'application/json'},
 			body : JSON.stringify({

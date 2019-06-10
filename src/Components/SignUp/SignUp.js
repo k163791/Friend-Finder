@@ -65,7 +65,7 @@ validate = () => {
 onButtonSubmit = () => {
   const check = this.validate();
   if(check === 1) {
-    fetch('http://34.226.140.116:80/register',{
+    fetch('http://localhost:3001/register',{
       method : 'post',
       headers : {'Content-Type' : 'application/json'},
       body : JSON.stringify({

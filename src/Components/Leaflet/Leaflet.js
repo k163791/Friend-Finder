@@ -52,7 +52,7 @@ class Leaflet extends React.Component {
 }
 
 	setLoc = () => {
-		fetch('http://34.226.140.116:80/setLocation',{
+		fetch('http://localhost:3001/setLocation',{
 			method : 'post',
 			headers : {'Content-Type' : 'application/json'},
 			body : JSON.stringify({

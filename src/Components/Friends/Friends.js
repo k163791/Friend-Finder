@@ -20,7 +20,7 @@ class Friends extends React.Component{
 
 	componentDidMount() {
 	    this._isMounted = true;
-	  	fetch('http://34.226.140.116:80/getFriends',{
+	  	fetch('http://localhost:3001/getFriends',{
 			method: 'post',
 			headers: {'Content-Type':'application/json'},
 			body : JSON.stringify({
